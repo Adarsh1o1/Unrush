@@ -1,0 +1,191 @@
+{% extends 'index.html' %}
+{% block navbar %}
+<style>
+
+
+    h1,
+    h3,
+    h4 {
+        color: #ffffff;
+        padding-top: 3%;
+        /* Headings in white */
+    }
+
+    hr {
+        border-top: 2px solid #ffffff;
+    }
+
+    ul li {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: #ffffff;
+        /* List items in white */
+    }
+
+    .text-center {
+        color: #ffffff;
+    }
+
+    .btn-primary {
+        background-color: #ffffff;
+        border-color: #ffffff;
+        color: #07419e;
+        /* Button text color set to blue */
+    }
+
+    .btn-primary:hover {
+        background-color: #f0f0f0;
+        border-color: #f0f0f0;
+        color: #07419e;
+    }
+</style>
+
+<section class="main1">
+
+    <!-- <div class="main-text">
+        <h1>Fontend or Gui</h1>
+        <p>This website showcases a seamless and simple user interface, designed using a combination of
+            HTML, CSS, and basic minimal JavaScript. Prioritizing clean and semantic HTML markup, ensuring an accessible
+            and
+            structured foundation for our web pages. CSS styles are thoughtfully designed, breathing life into the user
+            experience and creating a visually stunning presentation across various devices.
+            <br>
+            JavaScript, it strategically implement it to enhance user interactions and improve
+            overall functionality without compromising on performance like it helped to avoid multiple form submission
+            on reloading and for making revealing animations etc. To ensure optimal responsiveness,this site also employ
+            the
+            Bootstrap framework, allowing our website to adapt flawlessly to different screen sizes and devices.
+        </p>
+    </div>
+
+</section>
+<section class="main1"> -->
+    <!-- <div class="main-text">
+        <h1>Backend</h1>
+        <p>The main and core part of devloping this website is Django backend, a powerful web framework that enables us
+            to
+            build feature-rich and dynamic web applications. Django's Model-View-Template (MVT) architecture ensures a
+            well-organized codebase and separation of concerns, promoting maintainability and extensibility.<br> Relying
+            on Python, a robust and versatile programming language, to power the backend
+            infrastructure of the website. Leveraging the capabilities of Python allows to write scalable and
+            efficient code, driving the seamless functioning of web applications,
+            to further bolster the backend development </p>
+    </div>
+</section>
+<section class="main1">
+
+    <div class="main-text">
+        <h1>Database</h1>
+        <p>Presently, managing data and files using SQLite, a lightweight and efficient database management system that
+            serves needs well. However, continuously exploring ways to enhance database capabilities and
+            plan to transition to <strong>MongoDB</strong> soon.<br>
+
+            MongoDB, a NoSQL database, promises the scalability and flexibility required for handling vast amounts of
+            unstructured data. This will enable us to build more sophisticated and data-intensive applications, catering
+            to the evolving demands of our users.</p>
+    </div>
+
+</section>
+<section class="main1">
+
+    <div class="main-text">
+        <h1>Security</h1>
+        <p>In addition to frontend, backend, and database,  This website uses <strong>Cypher suite base64 encoding and decoding</strong>  making it url break safe. As trusting us to store their personal files, data security needs to be serious. Commiting
+            to protecting sensitive information is evident through the integration of encryption utilities and
+            cryptography measures.
+
+            As technology enthusiasts, staying vigilant about the latest advancements in web development, allowing us to
+            deliver innovative and cutting-edge solutions to users. 
+            <br><br>
+            Thank you for visiting About page, and looking forward to serving with excellence in web development and user experience.</p>
+    </div> -->
+
+
+    <div class="container my-5">
+        <h1 class="text-center mb-4">How It Works</h1>
+        <p class="text-center">Welcome to Unrush! Here's a step-by-step guide on how to make the most of our file
+            hosting platform.</p>
+
+        <h3 style="color: #ffffff;">1. Sign Up and Get Started</h3>
+        <ul>
+            <li><strong>Create an Account</strong>: Signing up is simple and free. Just click the “Sign Up” button, fill
+                in your details, and you're ready to go!</li>
+            <li><strong>Log In</strong>: If you already have an account, log in with your credentials to access your
+                files.</li>
+        </ul>
+
+        <h3 style="color: #ffffff;">2. Upload Your Files</h3>
+        <ul>
+            <li><strong>Easy Upload</strong>: Navigate to your dashboard and click on the "Upload" button. You can
+                upload files of various types and sizes directly from your device.</li>
+            <li><strong>Organize in Folders</strong>: Create folders to keep your files organized. Group similar files
+                together for quick access.</li>
+        </ul>
+
+        <h3 style="color: #ffffff;">3. Manage Your Files and Folders</h3>
+        <ul>
+            <li><strong>File Management</strong>: Rename, delete, or move files between folders with just a few clicks.
+            </li>
+            <li><strong>Folder Organization</strong>: Use folders to categorize and structure your files for easy
+                retrieval.</li>
+        </ul>
+
+        <h3 style="color: #ffffff;">4. Share Files with Others</h3>
+        <ul>
+            <li><strong>Link Sharing</strong>: Want to share a file or folder with others? Generate a unique link for
+                your file or folder and share it with anyone.</li>
+            <li><strong>Permissions Control</strong>: Decide who can view, download, or edit the files you share to
+                ensure your data remains secure.</li>
+        </ul>
+
+        <h3 style="color: #ffffff;">5. Access Files Anywhere</h3>
+        <ul>
+            <li><strong>Cross-Device Compatibility</strong>: Access your files from any device. Simply log in to your
+                account from a smartphone, tablet, or computer, and your files will be there.</li>
+            <li><strong>Automatic Sync</strong>: Any changes you make will automatically sync across your devices, so
+                you always have the latest version.</li>
+        </ul>
+
+        <h3 style="color: #ffffff;">6. Enhanced Security</h3>
+        <ul>
+            <li><strong>Data Encryption</strong>: We use encryption to protect your data, ensuring that only you and the
+                people you share with have access.</li>
+            <li><strong>Privacy Control</strong>: Your files are all yours. They cannot be manipulated(creation, updation and deletion) by others.</li>
+        </ul>
+
+        <h3 style="color: #ffffff;">7. Download Anytime</h3>
+        <ul>
+            <li><strong>Quick Downloads</strong>: Download your files whenever you need them. Just click the "Download"
+                button, and the file will be saved to your device.</li>
+            <li><strong>Bulk Download</strong>: Download multiple files or entire folders at once for convenience.</li>
+        </ul>
+
+        <!-- <h3 style="color: #ffffff;">8. Real-Time Notifications</h3>
+        <ul>
+            <li><strong>Activity Alerts</strong>: Receive notifications for changes made to shared files and folders.
+            </li>
+            <li><strong>Access Updates</strong>: Stay informed when someone views or downloads files you've shared.</li>
+        </ul> -->
+
+        <!-- <h3 style="color: #ffffff;">9. Get Support Anytime</h3>
+        <ul>
+            <li><strong>Help Center</strong>: Visit our Help Center for articles, FAQs, and troubleshooting tips.</li>
+            <li><strong>Customer Support</strong>: Reach out to our support team if you have questions or encounter
+                issues. We're here to help!</li>
+        </ul> -->
+
+        <hr class="my-4">
+
+        <h4 class="text-center">Start Now!</h4>
+        <p class="text-center">Ready to make the most of Unrush? Log in to your account and explore the world of
+            seamless file management and sharing. Your files, always at your fingertips.</p>
+    </div>
+
+
+</section>
+
+
+
+
+
+{% endblock %}

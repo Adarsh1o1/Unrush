@@ -1,0 +1,534 @@
+{% load static %}
+{% include 'navbar.html' %}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=content_copy" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+<!-- remix icons -->
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+<style>
+  * {
+    scrollbar-width: none;
+    overflow: hidden;
+    position: static;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  *::-webkit-scrollbar {
+    display: none;
+  }
+
+  .material-symbols-outlined {
+    vertical-align: middle;
+    font-size: 30px !important;
+    font-variation-settings:
+      'FILL' 1,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 48
+  }
+
+
+  .sidebar {
+    min-width: 22vw;
+    margin-left: 8px;
+    background-color: #07419e;
+    display: inline-block;
+    position: sticky;
+    height: 91vh;
+    width: 22vw;
+    border-radius: 20px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    overflow: scroll;
+    transition: all .55s ease
+  }
+
+
+  .files {
+    margin-left: 10px;
+    border: 2px solid #07419e;
+    border-radius: 20px;
+    background-color: #07419e;
+    display: inline-block;
+    position: absolute;
+    width: 75vw;
+    max-height: 91vh;
+    min-height: 91vh;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    overflow: scroll;
+    overflow-y: scroll;
+  }
+
+  .folder {
+    display: inline-block;
+    color: white;
+    font-size: x-large;
+    margin-top: 3vh;
+    margin-left: 4vh;
+  }
+
+  .folder:hover {
+    color: white;
+  }
+
+  .folder-btn {
+    position: relative;
+    top: -15px;
+    color: white;
+    font-size: 24px;
+  }
+
+  .folder-btn:hover {
+    color: #07419e;
+    background-color: #e8e8e8;
+  }
+
+  .subfolder {
+    background-color: #d3d5df;
+    border-radius: 40px;
+    /* font-size: x-large; */
+    margin: 10px;
+    width: fit-content;
+    padding: 0;
+  }
+
+  .folder_name {
+    display: inline;
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  .subfolder:hover {
+    background-color: #e8e8e8;
+  }
+
+  .create {
+    display: inline-block;
+    position: sticky;
+    right: -18vw;
+  }
+
+  .create-btn {
+    margin-right: 10px;
+    background: #ffffff;
+    padding-top: 8px;
+    padding-bottom: 10px;
+    color: #07419e;
+  }
+
+
+  .create-btn:hover {
+    background: #e8e8e8;
+    color: #07419e;
+    padding-top: 8px;
+    padding-bottom: 10px;
+  }
+
+  .del_downl_btn {
+    /* position: relative; */
+    left: 9px;
+    border: none;
+    color: #07419e;
+    border-color: #07419e;
+  }
+
+  .del_downl_btn:hover {
+    border: none;
+    background-color: #07419e;
+    border-color: #07419e;
+  }
+
+  .foldername {
+    text-decoration: none;
+    color: black;
+    margin-left: 5px;
+  }
+
+  .foldername:hover {
+    color: #07419e;
+  }
+
+  .sidebar_folder {
+    text-decoration: none;
+    color: white;
+  }
+
+  li {
+    list-style: none;
+    line-height: 1vh;
+  }
+
+  .create-btn-root {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-top: 2vh;
+    margin-left: 40px;
+    background: #ffffff;
+    padding-top: 8px;
+    padding-bottom: 10px;
+    color: #07419e;
+    width: fit-content;
+  }
+
+  .create-btn-root:hover {
+    background: #e8e8e8;
+    color: #07419e;
+  }
+
+  .root_heading {
+    color: white;
+    font-size: larger;
+    margin-top: 4vh;
+    margin-left: 4vh;
+  }
+
+  .modal_btn {
+    color: #07419e;
+    border: 3px solid #07419e;
+  }
+
+  .modal_btn:hover {
+    color: white;
+    background-color: #07419e;
+    border: 3px solid #07419e;
+  }
+
+  .bx {
+    color: white;
+    position: absolute;
+    top: 14px;
+    right: 3%;
+    font-size: 35px;
+    display: none;
+  }
+  .bx:hover{
+    cursor: pointer;
+  }
+
+
+.material-symbols-rounded {
+  
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+
+  @media (max-width: 1000px) {
+    .files {
+      width: 95%;
+      height: 100%;
+    }
+
+    .bx {
+      display: block;
+      z-index: 1001;
+    }
+
+    .create-btn-root {
+      position: absolute;
+      right: 40px;
+
+    }
+
+    .root_heading {
+      position: absolute;
+      top: 40px;
+      right: 90px;
+      font-size: 20px;
+
+    }
+
+    .sidebar{
+      z-index: 1000;
+      display: flex;
+      position: absolute;
+      top: 10vh;
+      right: 200%;
+      background-color: #07419e;
+      height: 99%;
+      width: 300px;
+      border-radius: 0px;
+      overflow-x: hidden;
+      overflow-y: hidden;
+      overflow: scroll;
+      transition: all .55s ease;
+    }
+
+    .list{
+      position: absolute;
+      right: 157px;
+      margin-top: 111px;
+
+    }
+    .sidebar_folder{
+      line-height: 2;
+      font-size: 12px;
+    }
+    .sidebar.open{
+      right: 0;
+    }
+  }
+  @media (max-width: 800px){
+    .extra{
+      display: none;
+    }
+  }
+</style>
+
+<div class="sidebar">
+  {% if request.user == folder.user %}
+  <a class="create-btn-root btn" data-bs-toggle="modal" data-bs-target="#exampleModal_1">create new folder</a>
+  {% endif %}
+  <div>
+    <h2 class="root_heading">Root Folders</h2>
+  </div>
+  <ul class="list">
+    {% for folder in folders %}
+    <li><a class='sidebar_folder' href="{% url 'folder_contents' folder_id=folder.id %}"><span
+          class="material-symbols-outlined">folder</span>{{folder}}</a></li>
+    {% endfor %}
+  </ul>
+</div>
+<div class="files">
+  <div class="bx bx-menu" id="menu-icon"></div>
+  {% if request.user == folder.user %}
+  <span class="folder">My Files</span>
+  <span class="material-symbols-outlined folder-btn" style="color: white;">
+    navigate_next
+  </span>
+  {% else %}
+  <span class="folder">{{folder.user}}'s folder</span>
+  <span class="material-symbols-outlined folder-btn" style="color: white;">
+    navigate_next
+  </span>
+  {% endif %}
+  {% if folder.parent_folder %}
+  <a class="folder-btn btn" type="button"
+    href="{% url 'folder_contents' folder_id=folder.parent_folder.id %}">{{folder.parent_folder}}</a><span
+    class="material-symbols-outlined folder-btn" style="color: white;">
+    navigate_next
+  </span>
+  {% endif %}
+  <a class="folder-btn btn" type="button"
+    href="{% url 'folder_contents' folder_id=folder.id %}">{{folder.name}}</a><span
+    class="material-symbols-outlined folder-btn" style="color: white;">
+    navigate_next
+  </span>
+  <div class="create">
+    {% if request.user == folder.user %}
+    <a href="" class="create-btn btn" data-bs-toggle="modal" data-bs-target="#exampleModal"><span
+      class="material-symbols-outlined">
+      create_new_folder
+    </span></a>
+    <a class="create-btn btn" style="color: #07419e;" href="{% url 'upload' pk=folder.id %}"><span
+      class="material-symbols-outlined">
+      Upload_file
+    </span></a>
+    <a class="create-btn btn" role="button" href="{% url 'delete_folder' pk=folder.id%}"><span
+      class="material-symbols-outlined">
+      delete
+    </span></a>
+    {% endif %}
+  </div>
+  {% if subfolders or files %}
+
+  <h3 style="color: white;">Files</h3>
+  <div class="table-responsive{-sm|-md|-lg|-xl|-xxl}">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th class="extra" scope="col">Uploaded on</th>
+          <th class="extra" scope="col">File size</th>
+          <th scope="col">Download</th>
+          {% if folder.user == request.user %}
+          <th scope="col">Delete</th>
+          {% endif %}
+        </tr>
+      </thead>
+      <tbody class="tbody">
+        {% for subfolder in subfolders %}
+        <tr>
+          <td>
+            <div style="word-wrap: break-word;">
+              <a class="foldername" href="{% url 'folder_contents' folder_id=subfolder.id %}"><span
+                  class="material-symbols-outlined">
+                  folder
+                </span> {{subfolder}}</a>
+            </div>
+          </td>
+          <td class="extra">
+            {{subfolder.date}}
+          </td>
+          <td class="extra"><span class="material-symbols-outlined">
+              remove
+            </span></td>
+          <td><span style="padding-left: 25px;" class="material-symbols-outlined">
+              remove
+            </span></td>
+          {% if subfolder.user == request.user %}
+          <td> <a class="del_downl_btn btn btn-outline-primary" href="{% url 'delete_folder' pk=subfolder.id%}"
+              role="button"><span class="material-symbols-outlined">
+                delete
+              </span></a></td>
+          {% endif %}
+        </tr>
+        {% endfor %}
+        <tr>
+          {% for file in files %}
+          <td>
+            <div style="word-wrap: break-word;">
+              <a class="foldername" href="{{file.file.url}}">{{file}}</a>
+              <button id="copyButton{{ forloop.counter }}" style="border: none; background-color: transparent;"><span
+                class="material-symbols-rounded">
+                content_copy
+              </span></button>
+              <input type="text" id="link{{ forloop.counter }}" value="https://loved-seemingly-cod.ngrok-free.app{% url 'download' file_name=file %}" hidden>
+            </div>
+          </td>
+          <td class="extra">
+            {{file.date}}
+          </td>
+          <td class="extra">
+            {{file.file_size}}
+          </td>
+          <td> <a  class="del_downl_btn btn btn-outline-primary" href="{% url 'download' file_name=file %}" role="button"><span
+                class="material-symbols-outlined">
+                download
+              </span></a></td>
+          {% if file.user == request.user %}
+          <td> <a class="del_downl_btn btn btn-outline-primary" href="{% url 'delete' pk=file.id %}" role="button"><span
+                class="material-symbols-outlined">
+                delete
+              </span></a> </td>
+          {% endif %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <span style="font-size: 100px; 
+margin-top: 40vh;
+display: flex ;
+justify-content: center;
+align-items: center;
+color: white;
+" class="material-symbols-outlined">
+    hourglass_empty
+  </span>
+  <p style="color: white;
+  display: flex;
+  justify-content: center;
+  ">empty folder</p>
+
+  {% endif %}
+</div>
+
+<script>
+    let menu = document.querySelector('#menu-icon');
+  let navlist = document.querySelector('.sidebar');
+
+menu.onclick = () =>{
+  menu.classList.toggle('bx-x')
+  navlist.classList.toggle('open')
+}
+</script>
+
+
+<!-- to stop resubmission on refreh -->
+<script>
+  if (window.history.replaceState) {
+    window.history.replaceState(null, null, window.location.href);
+  }
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  // Get all copy buttons
+  const copyButtons = document.querySelectorAll("[id^='copyButton']");
+
+  copyButtons.forEach((button, index) => {
+    button.addEventListener("click", function() {
+      const link = document.getElementById(`link${index + 1}`);
+      link.hidden = false; // Make the input visible temporarily for copying
+      link.select();
+      link.setSelectionRange(0, 99999); // For mobile devices
+
+      navigator.clipboard.writeText(link.value).then(() => {
+        alert("Link copied to clipboard!");
+      }).catch((err) => {
+        console.error("Could not copy text: ", err);
+      });
+
+      link.hidden = true; // Hide the input again
+    });
+  });
+});
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"></script>
+
+<!-- Modal -->
+<div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Create Folder</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="form" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <label for="folder_name" class="form-label">Enter folder Name</label>
+          <input type="text" class="form-control" id="folder_name" name="folder_name" placeholder="xyz">
+          <input type="hidden" name="parent_folder_id" value="{{ folder.id|default:'' }}">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="modal_btn btn">Create</button></form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- in root dir -->
+<div class="modal" id="exampleModal_1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Create Folder</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="form" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <label for="folder_name" class="form-label">Enter folder Name</label>
+          <input type="text" class="form-control" id="folder_name" name="folder_name" placeholder="xyz">
+          <input type="hidden" name="parent_folder_id" value="">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="modal_btn btn">Create</button></form>
+
+      </div>
+    </div>
+  </div>
+</div>

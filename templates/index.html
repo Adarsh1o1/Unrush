@@ -1,0 +1,289 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>COMPANY NAME</title>
+  <!-- box icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  <!-- remix icons -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chela+One&family=Poppins:wght@300&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      list-style: none;
+      text-decoration: none;
+    }
+
+    ul li a,
+    header a {
+      list-style: none;
+      text-decoration: none;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      right: 0;
+      z-index: 10000;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      justify-content: space-between;
+      padding: 30px 6%;
+      background: transparent;
+    }
+
+    .logo {
+      font-size: 30px;
+      font-weight: 700;
+      color: white;
+    }
+
+    .navlist {
+      list-style: none;
+      display: flex;
+    }
+
+    .navlist a {
+      color: white;
+      margin-left: 60px;
+      font-weight: 600;
+      font-size: 15px;
+      border-bottom: 2px solid transparent;
+      transition: all .55s ease;
+      
+    }
+
+    .navlist a:hover {
+      border-bottom: 2px solid white;
+    }
+
+    #menu-icon {
+      color: white;
+      font-size: 30px;
+      z-index: 10001;
+      cursor: pointer;
+      display: none;
+    }
+
+    .main1 {
+      height: 100%;
+      width: 100%;
+      padding-left: 15%;
+      min-height: 100vh;
+      background: rgb(2, 0, 36);
+      background: linear-gradient(245deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      align-items: center;
+      gap: 2rem;
+    }
+    .main-text h5{
+      font-size: 15px;
+      font-weight: 300;
+      color: white;
+      margin-bottom: 40px;
+    }
+    .main-text h3{
+      font-size: 15px;
+      font-weight: 300;
+      color: white;
+    }
+    .main-text h1{
+      font-size: 40px;
+      color: white;
+      font-family: 'Chela One', cursive;
+      /* font-family: 'Poppins', sans-serif; */
+    }
+    .main-text p{
+      font-size: 15px;
+      color: white;
+      line-height: 1.9;
+    }
+    .main-text a.signup{
+      display: inline-block;
+      margin-top: 10px;
+      background: #0558a0;
+      border: 2px solid transparent;
+      border-radius: 10px;
+      color: aliceblue;
+      padding: 10px;
+      text-decoration: none;
+      transition: all .55s ease-out;
+    }
+    .main-text a.signup:hover{
+      background: transparent;
+      border: 2px solid white;
+      transform: translateX(5px);
+    }
+    .main-image{
+      width: 500px;
+      height: auto;
+    }
+/* @media (max-width: 700px) {
+  header{
+  padding: 7px 3%;
+  transition: .2s;
+  } 
+
+}*/
+@media (max-width: 1110px) {
+    section{
+    padding: 0 12%;
+    transition: .2s;
+  }
+  .main-image{
+      width: 450px;
+      height: auto;
+      transition: .2s;
+    }
+}
+@media (max-width: 1010px) {
+    section{
+    padding: 0 6%;
+    transition: .2s;
+  }
+  .main-image{
+      width: 370px;
+      height: auto;
+      transition: .2s;
+    }
+}
+@media (max-width: 940px){
+  #menu-icon{
+    display: block;
+  }
+  .navlist{
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    width: 250px;
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    padding: 50px 20px;
+    flex-direction: column;
+    background: #0558a0;
+    transition: all .55s ease;
+  }
+  .navlist a{
+    margin-left: 0;
+    display: block;
+    margin: 7px 0;
+  }
+  .navlist.open{
+    right: 0;
+  }
+}
+@media (max-width: 760px){
+  section{
+    padding: 0 3%;
+    transition: .2s;
+  }
+  .main-text{
+    padding-top: 100px;
+  }
+  .main-image{
+    text-align: center;
+    width: 100%;
+    height: auto;
+  }
+  .main1{
+    height: 100%;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+  }
+}
+
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <a href="/" class='logo'>unrush</a>
+
+    <ul class="navlist">
+      <li><a href="/">Home</a></li>
+      {% if user.is_authenticated %}
+      <li><a href="{% url 'myfiles' pk=id %}">My Files</a></li>
+      {% endif %}
+      <li><a href="{% url 'about' %}">About</a></li>
+      <li><a href="#">Contact</a></li>
+      {% if user.is_authenticated %}
+      <li><a href="{% url 'logout' %}">logout</a></li>
+      {% else %}
+      <li><a href="{% url 'register' %}">signup</a></li>
+      <li><a href="{% url 'login' %}">login</a></li>
+      {% endif %}
+
+    </ul>
+
+    <div class="bx bx-menu" id="menu-icon"></div>
+  </header>
+{% block navbar %}
+  <section class="main1">
+
+    <div class="main-text">
+      <h5>Data is precious, Operate carefully</h5>
+      <h3>More Beyond Storage, Cloud Hosting Made Simple</h3>
+      <h1>File Hosting</h1>
+      <p>Welcome to our cloud hosting oasis, where files find a secure and limitless home. Embrace the power of the
+        cloud - store, share, and access your data with ease, anytime, anywhere.</p>
+      <a href="{% url 'register' %}" role="button" class="signup" >Get Started</a>
+    </div>
+
+    <div>
+      <img class="main-image" src="http://127.0.0.1:8000/Daco_2034083.png" alt="image">
+    </div>
+  </section>
+
+  <section class="main1">
+    <div class="main-image">
+      <img src="http://127.0.0.1:8000/Daco_4450829.png " alt="cloud image">
+    </div>
+    <div class="main-text">
+      <h5>Data is precious, Operate carefully</h5>
+      <h1>For Every individual who needs to provide files to others like youtuber</h1>
+      <h3>Simple Operations</h3>
+      <p>Elevate your digital experience as we safeguard and empower your files to roam freely, offering seamless access and unparalleled collaboration opportunities</p>
+      
+    </div>
+
+  </section>
+{% endblock %}
+{% include 'footer.html' %}
+<script src="https://unpkg.com/scrollreveal"></script>
+<script>
+  let menu = document.querySelector('#menu-icon');
+  let navlist = document.querySelector('.navlist');
+
+menu.onclick = () =>{
+  menu.classList.toggle('bx-x')
+  navlist.classList.toggle('open')
+}
+const sr = ScrollReveal ({
+  distance: '65px',
+  duration: 2600,
+  delay: 450,
+  reset: true
+})
+
+sr.reveal('.main-text',{delay:200,origin:'top'});
+
+</script>
+</body>
+</html>

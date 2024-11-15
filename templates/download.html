@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 50vh;
+        }
+
+        h1 {
+            margin: 10px;
+            font-size: 30px;
+            display: block;
+        }
+
+        p{
+            font-size: 20px;
+            text-align: center;
+        }
+
+        a{
+            margin: 10px;
+            display: block;
+            font-size: 20px;
+            text-decoration: none;
+            color: #07419e;
+            border: 3px solid #07419e;
+            padding: 5px;
+            border-radius: 12px;
+        }
+
+        a:hover {
+            display: block;
+            color: white;
+            background-color: #07419e;
+            border: 3px solid #07419e;
+        }
+        @media (max-width: 400px) {
+            p{
+                font-size: 15px;
+            }
+            a{
+                font-size: 15px;
+            }
+            h1{
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Download now</h1>
+         <p>Are you sure to donwload "<b>{{file}}</b>" of <b>{{file.file_size}}</b>?</p>
+        <a download role="button" href="{{file.file.url}}">Download</a>
+    </div>
+</body>
+
+</html>
